@@ -1,13 +1,18 @@
-﻿using API.Entities;
+﻿using System.ComponentModel.DataAnnotations.Schema;
+using API.Entities;
 using Microsoft.EntityFrameworkCore;
 
-namespace API.Data;
-
-public class DataContext : DbContext
+namespace API.Data
 {
-    public DataContext(DbContextOptions options) : base(options)
+    [Table("Photos")]
+
+    public class DataContext : DbContext
     {
-        
+        public DataContext(DbContextOptions options) : base(options)
+        {
+            
+        }
+
+        public DbSet<AppUser> Users { get; set; }
     }
-    public DbSet<AppUser> Users { get; set; }
 }
